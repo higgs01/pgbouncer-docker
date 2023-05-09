@@ -31,13 +31,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
       - 
         name: Build and push multiarch image to ghcr
         uses: docker/build-push-action@v3
