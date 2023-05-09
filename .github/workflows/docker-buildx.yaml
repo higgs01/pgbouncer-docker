@@ -16,11 +16,6 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
-      - name: Define image name
-        id: image
-        run: |
-            IMAGE="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
-            echo "NAME=$IMAGE" >> $GITHUB_OUTPUT
       -
         name: Docker meta
         id: meta
@@ -28,8 +23,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            name/app
-            ghcr.io/username/app
+            ${{env.IMAGE_NAME}}
+            ${{ env.REGISTRY }}/${{env.IMAGE_NAME}}
           # generate Docker tags based on the following events/attributes
           tags: |
             type=ref,event=branch
