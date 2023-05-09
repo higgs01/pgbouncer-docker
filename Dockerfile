@@ -1,5 +1,4 @@
 FROM alpine:3.17.3
-LABEL version=1.0.5
 
 RUN addgroup -S pgbouncer && adduser -S pgbouncer && mkdir /etc/pgbouncer /var/log/pgbouncer /var/run/pgbouncer
 
