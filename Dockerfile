@@ -1,4 +1,4 @@
-FROM alpine:3.17.3
+FROM alpine:3.18.0
 
 RUN addgroup -S pgbouncer && adduser -S pgbouncer && mkdir /etc/pgbouncer /var/log/pgbouncer /var/run/pgbouncer
 
